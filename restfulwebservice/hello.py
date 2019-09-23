@@ -38,12 +38,12 @@ def createEmp():
     }
     empDB.append(dat)
     return jsonify(dat)
-#@app.route('/empdb/employee/<empId>',methods=['DELETE'])
-#def deleteEmp(empId):
-#    em = [ emp for emp in empDB if (emp['id'] == empId) ]
-#    if len(em) == 0:
-#       abort(404)
-#    empDB.remove(em[0])
-#    return jsonify({'response':'Success'})
+@app.route('/empdb/employee/<empId>',methods=['DELETE'])
+def deleteEmp(empId):
+    em = [ emp for emp in empDB if (emp['id'] == empId) ]
+    if len(em) == 0:
+       abort(404)
+    empDB.remove(em[0])
+    return jsonify({'response':'Success'})
 if __name__ == '__main__':
  app.run()
